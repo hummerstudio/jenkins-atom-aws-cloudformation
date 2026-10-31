@@ -1,0 +1,12 @@
+{
+  "name": "AWS CloudFormation",
+  "summary": "Creates or updates a CloudFormation stack and waits until it settles.",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "aws",
+    "deploy"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-aws-cloudformation"
+}

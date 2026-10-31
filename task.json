@@ -1,0 +1,102 @@
+{
+  "atomCode": "aws-cloudformation",
+  "name": "AWS CloudFormation",
+  "version": "1.0.0",
+  "description": "Creates or updates a CloudFormation stack and waits until it settles.",
+  "execution": {
+    "packagePath": "aws-cloudformation.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp aws-cloudformation.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "region": {
+      "label": "区域（如 us-east-1）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "accessKey": {
+      "label": "Access Key ID",
+      "type": "password",
+      "default": ""
+    },
+    "secretKey": {
+      "label": "Secret Access Key",
+      "type": "password",
+      "default": ""
+    },
+    "sessionToken": {
+      "label": "Session Token（临时凭据）",
+      "type": "password",
+      "default": ""
+    },
+    "stackName": {
+      "label": "堆栈名",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "templateBody": {
+      "label": "模板内容（与 templateUrl 二选一）",
+      "type": "textarea",
+      "default": ""
+    },
+    "templateUrl": {
+      "label": "模板 URL（S3 上的模板）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "parameters": {
+      "label": "参数（JSON 或 key=value，逗号分隔）",
+      "type": "textarea",
+      "default": ""
+    },
+    "capabilities": {
+      "label": "Capabilities（逗号分隔，如 CAPABILITY_IAM）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "wait": {
+      "label": "等待堆栈稳定",
+      "type": "checkbox",
+      "default": "true"
+    },
+    "waitTimeoutSeconds": {
+      "label": "等待上限（秒）",
+      "type": "vuex-input",
+      "default": "1800"
+    },
+    "endpoint": {
+      "label": "自定义端点（测试用）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "timeoutSeconds": {
+      "label": "单次请求超时（秒）",
+      "type": "vuex-input",
+      "default": "60"
+    }
+  },
+  "output": {
+    "action": {
+      "type": "string",
+      "description": "create / update / noop"
+    },
+    "status": {
+      "type": "string",
+      "description": "最终堆栈状态"
+    },
+    "stackName": {
+      "type": "string",
+      "description": "堆栈名"
+    },
+    "stackId": {
+      "type": "string",
+      "description": "堆栈 ARN/ID"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}
