@@ -37,4 +37,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: aws-cloudformation-atom
-          path: atom/dist/aws-cloudformation/
+          path: atom/target/dist/aws-cloudformation/
