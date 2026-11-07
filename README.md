@@ -12,7 +12,7 @@ CloudFormation 用的是老的 Query 协议（表单编码 + `Action` 参数 + X
   回滚了还报绿，是坏包上线最常见的方式
 
 ```bash
-./build.sh && ./tools/smoke.sh
+mvn verify
 ```
 
-smoke 的假端点自己复算 SigV4，并且维护一个小状态机：第一次调用走创建，第二次走更新，无变更时回 AWS 的原话。
+假端点自己复算 SigV4，并且维护一个小状态机：第一次调用走创建，第二次走更新，无变更时回 AWS 的原话。
